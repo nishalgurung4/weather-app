@@ -1,0 +1,27 @@
+name: Format PHP
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  php-cs-fixer:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install composer dependencies
+        run: composer install
+
+      - name: Run PHP CS Fixer
+        run: composer format
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Fix PHP styling
+          branch: ${{ github.head_ref }}
