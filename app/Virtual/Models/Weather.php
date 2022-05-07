@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Virtual\Models;
+
 use phpDocumentor\Reflection\Types\Integer;
 
 /**

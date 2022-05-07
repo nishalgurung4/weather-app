@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Virtual\Models;
+
 use phpDocumentor\Reflection\Types\Integer;
 
 /**
@@ -58,5 +59,4 @@ class City
      * @var float
      */
     public float $latitude;
-
 }
