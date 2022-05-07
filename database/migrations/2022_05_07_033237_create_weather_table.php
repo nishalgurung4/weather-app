@@ -27,8 +27,8 @@ return new class() extends Migration {
             $table->decimal('wind_speed');
             $table->integer('wind_degree');
             $table->integer('cloudiness_percent');
-            $table->integer('rain_for_hour')->nullable()->comment('unit: mm');
-            $table->integer('snow_for_hour')->nullable()->comment('unit: mm');
+            $table->decimal('rain_for_hour')->nullable()->comment('unit: mm');
+            $table->decimal('snow_for_hour')->nullable()->comment('unit: mm');
             $table->timestamp('time_of_data_calculation');
             $table->date('date');
             $table->timestamps();

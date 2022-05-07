@@ -1,0 +1,193 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Weather App",
+        "contact": {
+            "name": "Er. Nishal Gurung",
+            "url": "https://nishalgurung.name.np",
+            "email": "nishal.gurung4@gmail.com"
+        },
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "https://weather.nishalgurung.name.np/api/v1/",
+            "description": "Deployment Server"
+        },
+        {
+            "url": "http://weather-app.test/api/v1/",
+            "description": "Development Server"
+        }
+    ],
+    "paths": {
+        "/": {
+            "get": {
+                "description": "Home page",
+                "operationId": "ca596268aac9ad0b64fa5a54e183da89",
+                "responses": {
+                    "default": {
+                        "description": "Welcome page"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "City": {
+                "title": "City",
+                "description": "City model",
+                "properties": {
+                    "id": {
+                        "title": "ID",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "name": {
+                        "title": "Name",
+                        "description": "Name",
+                        "type": "string",
+                        "example": "Tokyo"
+                    },
+                    "longitude": {
+                        "title": "Longitude",
+                        "description": "Longitude of the city",
+                        "type": "number",
+                        "format": "float",
+                        "example": -0.1257
+                    },
+                    "latitude": {
+                        "title": "Latitude",
+                        "description": "Latitude of the city",
+                        "type": "number",
+                        "format": "float",
+                        "example": 51.5085
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "City"
+                }
+            },
+            "Weather": {
+                "title": "Weather",
+                "description": "Weather model",
+                "properties": {
+                    "id": {
+                        "title": "ID",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "city": {
+                        "$ref": "#/components/schemas/City"
+                    },
+                    "condition": {
+                        "title": "Condition",
+                        "description": "Group of weather parameters (Rain, Snow, Extreme etc.)",
+                        "type": "string",
+                        "example": "Rain"
+                    },
+                    "description": {
+                        "title": "Description",
+                        "description": "Weather condition within the group",
+                        "type": "string",
+                        "example": "moderate rain"
+                    },
+                    "temperature": {
+                        "title": "Temperature",
+                        "description": "Temperature. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.",
+                        "type": "number",
+                        "format": "float",
+                        "example": 9.85
+                    },
+                    "humidity_percent": {
+                        "title": "Humidity",
+                        "description": "Humidity, %",
+                        "type": "number",
+                        "format": "float",
+                        "example": 93
+                    },
+                    "pressure": {
+                        "title": "Pressure",
+                        "description": "Atmospheric pressure, unit: Pascal",
+                        "type": "number",
+                        "format": "float",
+                        "example": 1010
+                    },
+                    "min_temperature": {
+                        "title": "Minimum Temperature",
+                        "description": "Minimum temperature at the moment. This is minimal currently observed temperature. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.",
+                        "type": "number",
+                        "format": "float",
+                        "example": 8.59
+                    },
+                    "max_temperature": {
+                        "title": "Maximum Temperature",
+                        "description": "Maximum temperature at the moment. This is minimal currently observed temperature. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.",
+                        "type": "number",
+                        "format": "float",
+                        "example": 8.59
+                    },
+                    "visibility_in_meter": {
+                        "title": "Visibility Distance",
+                        "description": "Visibility, meter. The maximum value of the visibility is 10km",
+                        "type": "integer",
+                        "example": 8.59
+                    },
+                    "wind_speed": {
+                        "title": "Wind Speed",
+                        "description": "Wind speed. Unit Default: meter/sec, Metric: meter/sec, Imperial: miles/hour.",
+                        "type": "number",
+                        "format": "float",
+                        "example": 5.36
+                    },
+                    "wind_degree": {
+                        "title": "Wind Degree",
+                        "description": "Wind direction, degrees",
+                        "type": "integer",
+                        "example": 81
+                    },
+                    "cloudiness_percent": {
+                        "title": "Cloudiness Percent",
+                        "description": "Cloudiness, %",
+                        "type": "integer",
+                        "example": 81
+                    },
+                    "rain_for_hour": {
+                        "title": "Rain volume",
+                        "description": "Rain volume for the last 1 hour, mm",
+                        "type": "integer",
+                        "example": 2.27
+                    },
+                    "snow_for_hour": {
+                        "title": "Snow volume",
+                        "description": "Snow volume for the last 1 hour, mm",
+                        "type": "number",
+                        "format": "float",
+                        "example": 5.17
+                    },
+                    "time_of_data_calculation": {
+                        "title": "Time of data calculation",
+                        "description": "Time of data calculation, unix, UTC",
+                        "type": "string",
+                        "example": "2022-05-07 07:05:41"
+                    },
+                    "date": {
+                        "title": "Date",
+                        "description": "Date of weather data",
+                        "type": "string",
+                        "example": "2022-05-07 07:05:41"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Weather"
+                }
+            }
+        }
+    }
+}
