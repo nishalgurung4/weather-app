@@ -53,7 +53,8 @@ class WeatherTest extends TestCase
     {
         $city = City::factory()->create();
         $weather = Weather::factory()->create(['city_id' => $city->id]);
-        $this->assertDatabaseHas('weather', $weather->attributesToArray());
+        $weatherInDB = Weather::find($weather->id);
+        $this->assertEquals($weatherInDB->attributesToArray(), $weather->attributesToArray());
     }
 
     /**
