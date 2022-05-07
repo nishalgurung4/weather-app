@@ -10,6 +10,10 @@ class Weather extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'time_of_data_calculation' => 'datetime'
+    ];
+
     public function city(): BelongsTo
     {
         return $this->belongsTo(City::class);
