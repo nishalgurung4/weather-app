@@ -27,8 +27,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('weather:sync')->everyFiveMinutes();
-        $schedule->command('weather:purge')->everyMinute();
+        $schedule->command('weather:sync')->everySixHours();
+        $schedule->command('weather:purge')->monthly();
     }
 
     /**
