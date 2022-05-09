@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\JsonResponse;
 
 /**
  * @OA\Info(
@@ -23,7 +24,19 @@ use App\Http\Controllers\Controller;
  *      description="Development Server"
  *)
  */
-
 class BaseController extends Controller
 {
+    /**
+     * return error response.
+     *
+     * @return JsonResponse
+     */
+    public function sendError($message, $errors = [], $code = 404)
+    {
+        $response = [
+            'message' => $message,
+            'errors' => $errors
+        ];
+        return response()->json($response, $code);
+    }
 }

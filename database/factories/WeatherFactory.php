@@ -39,8 +39,8 @@ class WeatherFactory extends Factory
             'wind_speed' => $this->faker->randomDigit(),
             'wind_degree' => $this->faker->numberBetween(0, 360),
             'cloudiness_percent' => $this->faker->numberBetween(0, 100),
-            'rain_for_hour' => $this->faker->randomDigit(),
-            'snow_for_hour' => $this->faker->randomDigit(),
+            'rain_for_3_hour' => $this->faker->randomDigit(),
+            'snow_for_3_hour' => $this->faker->randomDigit(),
             'time_of_data_calculation' => $this->faker->dateTime,
             'date' => $this->faker->date
         ];

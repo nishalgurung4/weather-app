@@ -13,14 +13,15 @@
         "laravel/tinker": "^2.7"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.6",
         "fakerphp/faker": "^1.9.1",
         "friendsofphp/php-cs-fixer": "^3.8",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
+        "nishalgurung4/php-style": "dev-main",
         "nunomaduro/collision": "^6.1",
         "phpunit/phpunit": "^9.5.10",
-        "spatie/laravel-ignition": "^1.0",
-        "nishalgurung4/php-style": "dev-main"
+        "spatie/laravel-ignition": "^1.0"
     },
     "repositories": [
         {

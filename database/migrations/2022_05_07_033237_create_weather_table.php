@@ -17,7 +17,7 @@ return new class() extends Migration {
             $table->foreignId('city_id');
             $table->string('condition', 100);
             $table->string('description');
-            $table->enum('unit', [0, 1, 2])->comment("0: default (Kelvin, m/sec), 1: metric (Celsius, m/sec), 2: imperial (Fahrenheit, miles/hour)");
+            $table->enum('unit', [0, 1, 2])->default(0)->comment("0: default (Kelvin, m/sec), 1: metric (Celsius, m/sec), 2: imperial (Fahrenheit, miles/hour)");
             $table->decimal('temperature');
             $table->integer('humidity_percent');
             $table->decimal('pressure');
@@ -27,8 +27,8 @@ return new class() extends Migration {
             $table->decimal('wind_speed');
             $table->integer('wind_degree');
             $table->integer('cloudiness_percent');
-            $table->decimal('rain_for_hour')->nullable()->comment('unit: mm');
-            $table->decimal('snow_for_hour')->nullable()->comment('unit: mm');
+            $table->decimal('rain_for_3_hour')->nullable()->comment('unit: mm');
+            $table->decimal('snow_for_3_hour')->nullable()->comment('unit: mm');
             $table->timestamp('time_of_data_calculation');
             $table->date('date');
             $table->timestamps();

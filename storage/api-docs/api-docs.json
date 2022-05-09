@@ -20,13 +20,62 @@
         }
     ],
     "paths": {
-        "/": {
+        "/forecast": {
             "get": {
-                "description": "Home page",
-                "operationId": "ca596268aac9ad0b64fa5a54e183da89",
+                "tags": [
+                    "forecast"
+                ],
+                "summary": "Fetch 5 days forecast with 3-hour step.",
+                "description": "Returns object",
+                "operationId": "indexWeather",
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "description": "Weather forecast date",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "responses": {
-                    "default": {
-                        "description": "Welcome page"
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Weather"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "date": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The date field is required"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
                 }
             }

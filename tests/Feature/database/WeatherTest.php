@@ -35,8 +35,8 @@ class WeatherTest extends TestCase
                 'wind_speed',
                 'wind_degree',
                 'cloudiness_percent',
-                'rain_for_hour',
-                'snow_for_hour',
+                'rain_for_3_hour',
+                'snow_for_3_hour',
                 'time_of_data_calculation',
                 'date',
                 'created_at',
@@ -67,7 +67,7 @@ class WeatherTest extends TestCase
         $weather = Weather::factory()->create(['city_id' => $city->id]);
 
         // Method 1: the city of the weather is an instance of the City class
-//        $this->assertInstanceOf(City::class, $weather->city);
+        $this->assertInstanceOf(City::class, $weather->city);
 
         // Method 2: The city number of the weather is indeed equal to 1
         $this->assertEquals(1, $weather->city()->count());
