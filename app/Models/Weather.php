@@ -9,11 +9,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Weather extends Model
 {
     use HasFactory;
-    protected array $casts = [
+    protected $casts = [
         'time_of_data_calculation' => 'datetime'
     ];
 
-    protected array $appends = ['unit_description'];
+    protected $appends = ['unit_description'];
 
     const TYPE_DEFAULT = '0';
     const TYPE_METRIC = '1';
