@@ -10,8 +10,8 @@ Nishal's todo list.
 
 ### In Progress
 
-- [ ] Setup Supervisor in the server
-- [ ] Setup Cron jobs to pull and store forecast data
+- [ ] Setup crontab and Supervisor in the server
+
 
 
 ### Done ✓
@@ -23,3 +23,4 @@ Nishal's todo list.
 - [X] Setup Event and Listener
 - [X] Setup Queue Jobs
 - [X] CRUD of Weather Forecast
+- [X] Setup Cron jobs to pull and store forecast data
