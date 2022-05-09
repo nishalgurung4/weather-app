@@ -5,15 +5,13 @@ Nishal's todo list.
 
 ### Todo
 
-- [ ] Setup Queue Jobs
-- [ ] Setup Supervisor in the server
-- [ ] Setup Cron jobs to pull and store forecast data
-- [ ] CRUD of Weather Forecast
+- [ ] Implement cache
 
 
 ### In Progress
 
-- [ ] Setup Event and Listener
+- [ ] Setup Supervisor in the server
+- [ ] Setup Cron jobs to pull and store forecast data
 
 
 ### Done ✓
@@ -22,3 +20,6 @@ Nishal's todo list.
 - [X] Setup database migrations, seeder, factories, models and relationship.
 - [X] Setup Swagger API
 - [X] Setup Open weather map api, Laravel Resource
+- [X] Setup Event and Listener
+- [X] Setup Queue Jobs
+- [X] CRUD of Weather Forecast

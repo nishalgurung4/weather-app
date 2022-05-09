@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Events\NoWeatherFound;
 use App\Http\Requests\Api\V1\WeatherRequest;
 use App\Http\Resources\CityResource;
 use App\Models\City;
@@ -9,6 +10,7 @@ use App\Models\Weather;
 use App\Services\ExternalWeatherService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Support\Carbon;
 
 class WeatherController extends BaseController
 {
@@ -58,6 +60,10 @@ class WeatherController extends BaseController
     {
         $dataCount = Weather::where('date', $request->date)->count();
         if (!$dataCount) {
+            //Because the weather API does not support querying by date, we will only retrieve if the given date is today.
+            if (Carbon::make($request->date)->isToday()) {
+                NoWeatherFound::dispatch();
+            }
             return $this->sendError("No data available");
         }
         $cities = City::with([
