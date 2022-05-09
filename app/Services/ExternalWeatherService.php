@@ -27,7 +27,6 @@ class ExternalWeatherService
     public function getWeathers($city): object|array
     {
         return $this->getData(['q' => $city]);
-
     }
 
     /**
@@ -38,5 +37,4 @@ class ExternalWeatherService
     {
         return (Http::get($this->url, array_merge($options, ['appid' => config('weather.open_weather_map_api_key')])))->object();
     }
-
 }

@@ -62,5 +62,4 @@ class WeatherForecastTest extends TestCase
         $this->getJson('api/v1/forecast?date=2020-5-9')
             ->assertStatus(200);
     }
-
 }

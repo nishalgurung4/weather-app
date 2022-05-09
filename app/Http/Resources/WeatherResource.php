@@ -37,5 +37,4 @@ class WeatherResource extends JsonResource
             'date' => $this->date
         ];
     }
-
 }
