@@ -62,9 +62,10 @@ class WeatherController extends BaseController
         if (!$dataCount) {
             //Because the weather API does not support querying by date, we will only retrieve if the given date is today.
             if (Carbon::make($request->date)->isToday()) {
-                NoWeatherFound::dispatch();
+                NoWeatherFound::dispatch(false);
+            } else {
+                return $this->sendError("No data available");
             }
-            return $this->sendError("No data available");
         }
         $cities = City::with([
             'weathers' => function ($query) use ($request) {

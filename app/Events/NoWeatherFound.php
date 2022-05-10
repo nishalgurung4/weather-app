@@ -15,22 +15,17 @@ class NoWeatherFound
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
+     * @var boolean
+     */
+    public bool $async;
+
+    /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($async = true)
     {
-        //
-    }
-
-    /**
-     * Get the channels the event should broadcast on.
-     *
-     * @return \Illuminate\Broadcasting\Channel|array
-     */
-    public function broadcastOn()
-    {
-        return new PrivateChannel('channel-name');
+        $this->async = $async;
     }
 }

@@ -14,7 +14,7 @@ class ExternalWeatherServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(ExternalWeatherService::class, function () {
+        $this->app->singleton(ExternalWeatherService::class, function () {
             return new ExternalWeatherService(config('weather.weather_forecast_url'));
         });
     }
